@@ -1,143 +1,137 @@
+/* Importa il font Montserrat da Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;800&display=swap');
-
+/* Stile generale della pagina */
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #f8f9fa;
-    color: #2c3e50;
-    overflow-x: hidden; /* Evita lo scroll orizzontale indesiderato su mobile */
+    font-family: 'Montserrat', sans-serif; /* Applica il font */
+    background-color: #f8f9fa; /* Sfondo grigio chiaro */
+    color: #2c3e50; /* Testo grigio scuro */
+    overflow-x: hidden; /* Evita lo scroll orizzontale su mobile */
 }
-
-/* HERO SECTION */
+/* ------------------- HERO SECTION (Homepage) ------------------- */
 .hero-section {
-    height: 100vh;
-    background: url('../img/sfondo_index.jpg') no-repeat center center/cover;
+    height: 100vh; /* Occupa l'intera altezza dello schermo */
+    background: url('../img/sfondo_index.jpg') no-repeat center center/cover; /* Immagine di sfondo */
     position: relative;
-    /* Fix per mobile: impedisce che la barra indirizzi nasconda il contenuto su iPhone */
-    min-height: -webkit-fill-available; 
+    min-height: -webkit-fill-available; /* Fix iPhone per evitare tagli */
 }
-
+/* Overlay scuro sopra l’immagine */
 .overlay {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Scurisce l'immagine */
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Oscura l'immagine */
 }
-
+/* Titolo principale nella hero */
 .main-title {
-    font-size: 5rem; /* Grande su PC */
-    letter-spacing: -2px;
+    font-size: 5rem; /* Grande per desktop */
+    letter-spacing: -2px; /* Riduce lo spazio tra le lettere */
 }
-
-.text-shadow { text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
-
-/* ELEMENTI DECORATIVI */
+/* Aggiunge ombra ai testi */
+.text-shadow {
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+}
+/* Linea decorativa sotto i titoli */
 .separator {
     width: 60px;
     height: 4px;
-    background-color: #ffd700; /* Oro */
+    background-color: #ffd700; /* Colore oro */
     margin-top: 10px;
 }
-
-/* CARD STYLE */
+/* ------------------- CARD STYLE ------------------- */
 .hover-card {
-    transition: all 0.3s ease;
-    border-radius: 15px;
-    overflow: hidden;
+    transition: all 0.3s ease; /* Animazioni fluide */
+    border-radius: 15px; /* Angoli arrotondati */
+    overflow: hidden; /* Evita fuoriuscite */
     background: white;
 }
-
+/* Immagine della card */
 .hover-card img {
     height: 250px;
-    object-fit: cover; /* L'immagine si adatta senza deformarsi */
-    transition: transform 0.5s ease;
+    object-fit: cover; /* Mantiene proporzioni senza deformare */
+    transition: transform 0.5s ease; /* Effetto zoom */
 }
-
-/* Effetto Hover (solo su dispositivi che hanno il mouse) */
+/* Hover SOLO su dispositivi con mouse */
 @media (hover: hover) {
     .hover-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+        transform: translateY(-10px); /* Si solleva */
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important; /* Aggiunge ombra */
     }
     .hover-card:hover img {
-        transform: scale(1.1);
+        transform: scale(1.1); /* Zoom immagine */
     }
 }
-
-/* OFFCANVAS MENU */
-.offcanvas { background-color: #111 !important; }
-.nav-link:hover { color: #ffd700 !important; padding-left: 10px; }
-
-/* --- MEDIA QUERIES (Regole per Mobile) --- */
+/* ------------------- OFFCANVAS MENU ------------------- */
+.offcanvas {
+    background-color: #111 !important; /* Menu laterale scuro */
+}
+/* Effetto hover sui link del menu */
+.nav-link:hover {
+    color: #ffd700 !important; /* Diventa oro */
+    padding-left: 10px; /* Leggera animazione verso destra */
+}
+/* ------------------- MEDIA QUERY (Mobile) ------------------- */
 @media (max-width: 768px) {
-    /* Riduciamo il titolo enorme su schermi piccoli */
+
+    /* Riduce la dimensione del titolo */
     .main-title {
-        font-size: 3.5rem; 
+        font-size: 3.5rem;
     }
-    
-    /* Rendiamo il burger button un po' più piccolo */
+    /* Rende il pulsante burger più compatto */
     .btn-burger {
         padding: 8px 15px;
         font-size: 0.9rem;
     }
-
-    /* Aggiustiamo i margini */
+    /* Riduce i margini verticali delle sezioni */
     section {
         padding-top: 2rem !important;
         padding-bottom: 2rem !important;
     }
 }
-
-/* Aggiungi questo alla fine del tuo file style.css */
-
-/* Header per le pagine interne (più basso della home) */
+/* ------------------- HEADER PAGINE INTERNE ------------------- */
 .page-header {
-    height: 60vh; /* Occupa il 60% dell'altezza schermo invece del 100% */
+    height: 60vh; /* Meno alto della home */
     position: relative;
-    /* Importante per mobile: */
-    min-height: 400px; 
+    min-height: 400px; /* Valore minimo per mobile */
 }
-
-/* Colore del testo attivo nel menu (Giallo/Oro) */
+/* Colore giallo/oro per elementi attivi nel menu */
 .text-warning {
     color: #ffd700 !important;
 }
-
-/* --- STILI PER PAGINA MEZZI --- */
-
-/* Colori Ufficiali Linee Metro Milano */
-.m1-line { background-color: #e32219; } /* Rossa */
-.m2-line { background-color: #63a630; } /* Verde */
-.m3-line { background-color: #fabd00; } /* Gialla */
-.m4-line { background-color: #004d8d; } /* Blu */
-.m5-line { background-color: #b288b9; } /* Lilla */
-
+/* ------------------- STILI PAGINA MEZZI ------------------- */
+/* Colori ufficiali delle linee della metro di Milano */
+.m1-line { background-color: #e32219; } /* Linea Rossa */
+.m2-line { background-color: #63a630; } /* Linea Verde */
+.m3-line { background-color: #fabd00; } /* Linea Gialla */
+.m4-line { background-color: #004d8d; } /* Linea Blu */
+.m5-line { background-color: #b288b9; } /* Linea Lilla */
+/* Card della metro */
 .metro-card {
-    transition: transform 0.3s;
-    color: white;
+    transition: transform 0.3s; /* Animazione */
+    color: white; /* Testo bianco */
 }
-
+/* Hover card metro */
 .metro-card:hover {
-    transform: translateY(-5px); /* Effetto sollevamento */
+    transform: translateY(-5px); /* Si solleva leggermente */
 }
-
-/* Indicatore di stato e Animazione */
+/* Indicatore di stato (es. "In servizio") */
 .status-indicator {
     font-size: 0.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 5px; /* Spaziatura tra icona e testo */
     color: rgba(255,255,255,0.9);
 }
-
+/* Puntino verde pulsante (stato attivo) */
 .pulse-green {
     width: 10px;
     height: 10px;
-    background-color: #00ff00; /* Verde brillante */
+    background-color: #00ff00;
     border-radius: 50%;
     box-shadow: 0 0 0 rgba(0, 255, 0, 0.7);
-    animation: pulse 2s infinite;
+    animation: pulse 2s infinite; /* Applica animazione */
 }
-
+/* Effetto pulsazione */
 @keyframes pulse {
     0% {
         box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
@@ -149,21 +143,22 @@ body {
         box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
     }
 }
-
-/* Effetto Hover sulla Mappa */
+/* ------------------- MAPPA METRO ------------------- */
+/* Contenitore anteprima mappa */
 .map-preview {
     position: relative;
-    border: 4px solid #fff;
+    border: 4px solid #fff; /* Bordo bianco */
 }
-
+/* Overlay che appare al passaggio del mouse */
 .map-preview .overlay-hover {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5);
-    opacity: 0;
-    transition: opacity 0.3s;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); /* Oscuramento */
+    opacity: 0; /* Invisibile */
+    transition: opacity 0.3s; /* Fade-in */
 }
-
+/* Effetto hover sulla mappa */
 .map-preview:hover .overlay-hover {
-    opacity: 1;
+    opacity: 1; /* Diventa visibile */
 }
